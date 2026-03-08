@@ -1,0 +1,18 @@
+{
+    "name": "nicofff/ammonia",
+    "type": "php-ext",
+    "license": "MIT",
+    "description": "Rust-based HTML sanitizer for PHP — wraps the ammonia crate",
+    "homepage": "https://github.com/nicofff/ammonia-php-rs",
+    "require": {
+        "php": ">=8.2"
+    },
+    "php-ext": {
+        "extension-name": "ammonia",
+        "priority": 80,
+        "support-zts": true,
+        "support-nts": true,
+        "os-families-exclude": ["windows"],
+        "download-url-method": ["pre-packaged-binary"]
+    }
+}
