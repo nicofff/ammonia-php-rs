@@ -2,3 +2,4 @@
 /benchmark/vendor
 /benchmark/cache
 /benchmark/composer.lock
+/.claude
