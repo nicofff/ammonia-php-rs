@@ -17,6 +17,8 @@ pie install nicofff/ammonia
 ### Quick sanitize (defaults)
 
 ```php
+use function Ammonia\sanitize_html;
+
 $clean = sanitize_html('<p>Hello <script>alert("xss")</script> <b>world</b></p>');
 // Output: <p>Hello  <b>world</b></p>
 ```
@@ -69,7 +71,7 @@ All methods (except `clean()`) return `$this` for chaining.
 
 ```bash
 cargo build --release
-php -d extension=./target/release/libammonia_php_rs.dylib -r 'echo sanitize_html("<b>hi</b>");'
+php -d extension=./target/release/libammonia_php_rs.dylib -r 'echo Ammonia\sanitize_html("<b>hi</b>");'
 ```
 
 ## Running benchmarks

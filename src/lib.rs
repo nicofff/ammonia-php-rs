@@ -5,6 +5,7 @@ mod builder;
 pub use builder::AmmoniaBuilder;
 
 #[php_function]
+#[php(name = "Ammonia\\sanitize_html")]
 pub fn sanitize_html(html: &str) -> String {
     ammonia::clean(html)
 }

@@ -46,7 +46,7 @@ $purifier = new HTMLPurifier($purifierConfig);
 // ── Warmup ──────────────────────────────────────────────────────────
 
 $purifier->purify($small);
-sanitize_html($small);
+Ammonia\sanitize_html($small);
 
 // ── Run benchmarks ──────────────────────────────────────────────────
 
@@ -69,7 +69,7 @@ foreach ($payloads as $label => $html) {
     // Benchmark sanitize_rs (ammonia)
     $start = hrtime(true);
     for ($i = 0; $i < $n; $i++) {
-        sanitize_html($html);
+        Ammonia\sanitize_html($html);
     }
     $rsTime = (hrtime(true) - $start) / 1e6; // ms
 
@@ -93,4 +93,4 @@ echo str_repeat('=', 70) . "\n";
 echo "\nCorrectness check (small payload):\n";
 echo "  Input:          " . $small . "\n";
 echo "  HTMLPurifier:   " . $purifier->purify($small) . "\n";
-echo "  ammonia:        " . sanitize_html($small) . "\n";
+echo "  ammonia:        " . Ammonia\sanitize_html($small) . "\n";
