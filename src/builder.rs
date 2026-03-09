@@ -408,6 +408,8 @@ impl AmmoniaBuilder {
     /// Throws on contradictory configuration.
     pub fn clean(&self, html: &str) -> PhpResult<String> {
         let builder = self.build();
+        // SAFETY: AssertUnwindSafe is fine — the closure only captures immutable refs
+        // (&self, &str), so no mutable state is left inconsistent if ammonia panics.
         let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
             builder.clean(html).to_string()
         }));
