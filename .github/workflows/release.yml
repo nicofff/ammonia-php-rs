@@ -121,8 +121,25 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh release upload "$GITHUB_REF_NAME" "$ASSET_NAME" --clobber
 
+  build-stubs:
+    needs: create-release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install cargo-php
+        run: cargo install cargo-php --locked
+      - name: Generate stubs
+        run: |
+          cargo build
+          cargo php stubs --stdout > ammonia.stubs.php
+      - name: Upload to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload "$GITHUB_REF_NAME" ammonia.stubs.php --clobber
+
   publish-release:
-    needs: [create-release, build-linux, build-macos]
+    needs: [create-release, build-linux, build-macos, build-stubs]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

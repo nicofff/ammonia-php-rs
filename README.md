@@ -69,7 +69,8 @@ All methods (except `clean()`) return `$this` for chaining.
 
 ## IDE Support
 
-PHP stubs for autocompletion and static analysis are in `stubs/ammonia.stubs.php`.
+PHP stubs for autocompletion and static analysis are attached to each
+[GitHub release](https://github.com/nicofff/ammonia-php-rs/releases) as `ammonia.stubs.php`.
 Compatible with PhpStorm, Intelephense (VS Code), PHPStan, and Psalm.
 
 ## Building from source
