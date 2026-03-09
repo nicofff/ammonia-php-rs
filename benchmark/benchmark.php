@@ -78,7 +78,7 @@ foreach ($payloads as $label => $html) {
     $rsAvg = $rsTime / $n;
 
     printf(
-        "%-20s %12.2f ms %12.2f ms %12.1fx\n",
+        "%-20s %12.3f ms %12.3f ms %12.1fx\n",
         $label,
         $purifierAvg,
         $rsAvg,
