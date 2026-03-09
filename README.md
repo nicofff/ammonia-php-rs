@@ -67,6 +67,11 @@ All methods (except `clean()`) return `$this` for chaining.
 | `idPrefix(?string)` | Prefix all id attribute values |
 | `clean(string): string` | Sanitize HTML and return result |
 
+## IDE Support
+
+PHP stubs for autocompletion and static analysis are in `stubs/ammonia.stubs.php`.
+Compatible with PhpStorm, Intelephense (VS Code), PHPStan, and Psalm.
+
 ## Building from source
 
 ```bash
